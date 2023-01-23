@@ -1,28 +1,65 @@
 .authentification{
     display: flex;
     height: 100vh;
-    justify-content: center;
-    align-items: center;
 
-    .authentification_container{
-        background-color: red;
+    .authentification_rightpart{
+        // background-color: red;
+        // background-image: url(../../assets/authBack1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        width: 300px;
-        height: 450px;
+        width: 50%;
         
-        .authentification_container_form{
+    }
+    .authentification_leftpart_form{
+        background-image: url(../../assets/authBack1.jpg);
+        background-size: cover;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        padding: 3em;
+        justify-content: center;
+        align-items: center;
+
+        .authentification_title{
+            margin-bottom: 1em;
+            text-align: center;
+            color: #294864;
+        }
+
+        form{
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 9px;
+            padding: 3em;
+            width: 350px;
             display: flex;
             flex-direction: column;
+            gap: 1em;
 
-            .authentification_title{
-                margin-top: 2em;
+            input{
+                height: 3em;
+                padding: 1em;
+                border: 1px solid gray;
+                border-radius: 9px;
             }
 
-            form{
+            button{
+                height: 3em;
+                width: 100px;
+                border: 1px solid gray;
+                border-radius: 9px;
+                background-color: #294864;
+                color: white;
+                font-weight: bold;
+                align-items: center;
+            }
+            .authentication_button{
                 display: flex;
-                flex-direction: column;
+                justify-content: center;
             }
         }
     }

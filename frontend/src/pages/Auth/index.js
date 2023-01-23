@@ -1,22 +1,26 @@
 import React from 'react'
 import './styles.scss'
+import logo from '../../assets/logo_InstadParc.png'
 
 export default function Authentification() {
   return (
     <div className="authentification">
-        <div className='authentification_container'>
-            <h1>INStaDParc</h1>
-            <div className='authentification_container_form'>
-                <h2 className='authentification_title'>Authentification</h2>
-                <form>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" placeholder="Email" />
-                    <label htmlFor="password">Mot de passe</label>
-                    <input type="password" placeholder="Mot de passe" />
-                    <button>Se Connecter</button>
-                </form>
+      <div className='authentification_rightpart'>
+        <img src={logo} alt='logo Instad'/>
+      </div>
+      <div className='authentification_leftpart_form'>
+          <form>
+            <h2 className='authentification_title'>AUTHENTIFICATION</h2>
+            <label htmlFor="email">Email</label>
+            <input type="email" placeholder="email" />
+            <label htmlFor="password">Mot de passe</label>
+            <input type="password" placeholder="Mot de passe" />
+            <div className='authentication_button'>
+              <button>Se Connecter</button>
             </div>
-        </div>
+              
+          </form>
+      </div>
     </div>
   )
 }
