@@ -1,0 +1,49 @@
+.sidebar{
+    background-color: #294864;
+    color: white;
+    width: 20%;
+    height: 100vh;
+    position: relative;
+
+    .sidebar_header{
+        display: flex;
+        padding: 0.5em;
+        align-items: center;
+        border-bottom: 1px solid white;
+
+        .sidebar_logo{
+            width: 7em;
+            height: 3em;
+        }
+        .sidebar_develop{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+        }
+    }
+
+}
+
+.sidebar_reduce{
+    width: 5%;
+    height: 100vh;
+    background-color: #294864;
+    color: white;
+
+    .sidebar_header{
+        display: flex;
+        align-items: center;
+        .sidebar_logo{
+            display: none;
+        }
+
+        .sidebar_develop{
+            transform: rotate(180deg);
+            width: 30px;
+            height: 30px;
+        }
+    }
+}

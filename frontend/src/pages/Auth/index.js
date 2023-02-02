@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles.scss'
-import logo from '../../assets/logo_InstadParc.png'
+import logo from '../../assets/Logo_Instad_site-removebg.png'
 
 export default function Authentification() {
   return (
