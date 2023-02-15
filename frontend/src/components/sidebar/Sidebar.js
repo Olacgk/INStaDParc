@@ -1,46 +1,100 @@
-import React, { useState } from 'react'
-import "./sidebar.scss";
-import { BiChevronLeft } from 'react-icons/bi'
-import sidebarLogo from '../../assets/Logo_Instad_site-removebg.png'
-import { IoHome } from 'react-icons/io5'
-import {MdComputer, MdNotifications} from 'react-icons/md'
-import {BsTools} from 'react-icons/bs'
-import {FaUsers} from 'react-icons/fa'
+import React from 'react'
+import './sidebar.scss'
+import { MdHome, MdListAlt, MdAccountCircle } from 'react-icons/md'
+import {FaTools, FaUsers} from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import { HiDocumentText } from 'react-icons/hi'
+import { BsFileCheckFill } from 'react-icons/bs'
 
 export default function Sidebar() {
 
-  const [open, setOpen] = useState(true);
-  // console.log(open)
-  return (
-    <div className={open ? 'sidebar': 'sidebar_reduce'}>
-      <div className='sidebar_header'>
-        <img src={sidebarLogo} alt='logo' className='sidebar_logo'/>
-        <BiChevronLeft className={'sidebar_develop'} size={'10px'} onClick={()=> setOpen(!open)}/>
-      </div>
-      <div className='sidebar_body'>
-        <ul className='sidebar_list'>
-          <li className='sidebar_list_item'>
-            <IoHome />
-            <span>Accueil</span>
-          </li>
-          <li className='sidebar_list_item'>
-            <MdNotifications />
-            <span>Notifications</span>
-          </li>
-          <li className='sidebar_list_item'>
-            <MdComputer />
-            <span>Matériels</span>
-          </li>
-          <li className='sidebar_list_item'>
-            <BsTools />
-            <span>Interventions</span>
-          </li>
-          <li className='sidebar_list_item'>
-            <FaUsers />
-            <span>Utilisateurs</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  )
+  const role = 'admin';
+
+  switch (role) {
+    case 'admin':
+      return (
+        <div className="sidebarComponent">
+          <div className="wrapper">
+            <div className='menu'>
+            <h3>Dashboard</h3>
+              <ul>
+                <Link to={'/dashboard'} className='link'>
+                  <li>
+                    <MdHome className='icon'/>
+                    Accueil
+                  </li>
+                </Link>
+                <Link to={'/materials'} className='link'>
+                  <li>
+                    <MdListAlt className='icon' />
+                    liste des matériels
+                  </li>
+                </Link>
+                <Link to={'/interventions'} className='link'>
+                  <li>
+                    <FaTools className='icon' />
+                    liste des interventions
+                  </li>
+                </Link>
+                <Link to={'/liste-utilisateurs'} className='link'>
+                  <li>
+                    <FaUsers className='icon' />
+                    liste des utilisateurs
+                  </li>
+                </Link>
+                <li>
+                  <BsFileCheckFill className='icon' />
+                  liste des demandes
+                </li>
+                <li>
+                  <HiDocumentText className='icon' />
+                  Rapports
+                </li>
+                <li>
+                  <MdAccountCircle className='icon' />
+                  Profile
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      );
+    case 'user':
+      return (
+        <div className="sidebarComponent">
+          <div className="wrapper">
+            <div className='menu'>
+            <h3>Dashboard</h3>
+              <ul>
+                <Link to={'/dashboard'} className='link'>
+                  <li>
+                    <MdHome className='icon'/>
+                    Accueil
+                  </li>
+                </Link>
+                <Link to={'/materials'} className='link'>
+                  <li>
+                    <MdListAlt className='icon' />
+                    Matériels
+                  </li>
+                </Link>
+                <Link to={'/interventions'} className='link'>
+                  <li>
+                    <FaTools className='icon' />
+                    Interventions
+                  </li>
+                </Link>
+                <li>
+                  <FaUsers className='icon' />
+                  Profile
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      );
+    default:
+      break;
+  }
+  
 }

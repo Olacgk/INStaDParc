@@ -1,0 +1,19 @@
+.list_demand{
+    .containerApp {
+        display: flex;
+        margin-top: 10px;
+    
+        .containerApp_right{
+          max-width: 80%;
+          flex: 4;
+
+          .heading{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2em;
+
+          }
+        }
+      }
+}

@@ -1,49 +1,53 @@
-.sidebar{
-    background-color: #294864;
-    color: white;
-    width: 20%;
-    height: 100vh;
-    position: relative;
+.sidebarComponent {
+  // flex: 1;
+  width: 25%;
+  height: calc(100vh - 50px);
+  background-color: #294864;
+  position: sticky;
+  top: 50px;
 
-    .sidebar_header{
-        display: flex;
-        padding: 0.5em;
-        align-items: center;
-        border-bottom: 1px solid white;
-
-        .sidebar_logo{
-            width: 7em;
-            height: 3em;
-        }
-        .sidebar_develop{
-            width: 30px;
-            height: 30px;
-            border-radius: 100%;
-            cursor: pointer;
-            position: absolute;
-            right: 0;
-        }
-    }
-
-}
-
-.sidebar_reduce{
-    width: 5%;
-    height: 100vh;
-    background-color: #294864;
+  .wrapper {
+    padding: 20px;
     color: white;
 
-    .sidebar_header{
-        display: flex;
-        align-items: center;
-        .sidebar_logo{
-            display: none;
-        }
+    .menu {
+      margin-bottom: 10px;
 
-        .sidebar_develop{
-            transform: rotate(180deg);
-            width: 30px;
-            height: 30px;
+      h3 {
+        font-size: 13px;
+        color: rgb(184, 184, 184)
+      }
+
+      .link{
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+
+        li {
+          padding: 5px;
+          cursor: pointer;
+          display: flex;
+          border-radius: 10px;
+          gap: 1em;
+          transition: 0.1s ease-in-out;
+
+          .icon {
+            font-size: 20px;
+          }
+          
+          &.active, &:hover {
+            background-color: rgb(228, 228, 228);
+            color: black;
+          }
         }
+      }
     }
+  }
 }
