@@ -75,7 +75,7 @@ export default function Sidebar() {
                 <Link to={'/materials'} className='link'>
                   <li>
                     <MdListAlt className='icon' />
-                    Matériels
+                    Demandes Matériels
                   </li>
                 </Link>
                 <Link to={'/interventions'} className='link'>

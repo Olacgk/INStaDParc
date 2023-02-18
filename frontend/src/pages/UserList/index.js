@@ -35,7 +35,7 @@ export default function UserList() {
         <div>
             <div className='heading'>
                 <h2>Liste des utilisateurs</h2>
-                <Button title={"Ajouter"}/>
+                <Button title={"Ajouter"} hasLink={true} link={'/new-user'}/>
             </div>
             <Table columns={columns} rows={UsersList}/>
         </div>
