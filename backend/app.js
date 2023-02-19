@@ -20,9 +20,19 @@ mongoose.connect(process.env.DB_CONNECTION, ()=>{
   });
 
 
+const authRoute = require('./routes/auth');
+app.use('/api/auth', authRoute);
 
+const userRoute = require('./routes/user');
+app.use('/api/user', userRoute);
 
-const userRoute = require('./routes/auth');
-app.use('/api/users', userRoute);
+const materialRoute = require('./routes/material');
+app.use('/api/material', materialRoute);
+
+const typeRoute = require('./routes/type');
+app.use('/api/type', typeRoute);
+
+const marqueRoute = require('./routes/marque');
+app.use('/api/marque', marqueRoute);
 
 app.listen(8080, ()=> console.log("Listening to port 8080"))

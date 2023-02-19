@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import './styles.scss'
 import logo from '../../assets/logo_instad.png'
+import { useNavigate } from "react-router-dom";
+
 
 export default function Authentification() { 
+  const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -11,7 +14,7 @@ export default function Authentification() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     
-    fetch("http://localhost:8080/api/users/login", {
+    fetch("http://localhost:8080/api/auth/login", {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -20,7 +23,8 @@ export default function Authentification() {
   }).then((res) => res.json())
   .then((data) => {
       if (data.status === 200) {
-        localStorage.setItem('user', data)
+        localStorage.setItem('user', data);
+        navigate('/');
       } else {
         setErrorMessage(data);
         console.log(errorMessage)
@@ -42,7 +46,7 @@ export default function Authentification() {
             <label htmlFor="password">Mot de passe</label>
             <input type="password" placeholder="Mot de passe" id='password' />
             <div className='authentication_button'>
-              <button type='submit'>Se Connecter</button>
+              <button type='submit' value={'submit'}>Se Connecter</button>
             </div>              
           </form>
       </div>
