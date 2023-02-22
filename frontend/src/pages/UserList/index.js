@@ -1,14 +1,19 @@
 import React from 'react'
 import './styles.scss'
-import Dashboard from '../../components/Dashboard'
 import Table from '../../components/table'
-import { MdDelete } from 'react-icons/md'
+import { MdDelete, MdEdit } from 'react-icons/md'
 import { FaEye } from 'react-icons/fa'
 import Button from '../../components/button'
 import { UsersList } from '../../data'
-import UserModal from '../../components/userModal'
+import { Link} from 'react-router-dom'
 
 export default function UserList() {
+  
+  // const location = useLocation();
+  // var splitPath = location.pathname.split("/")
+  // var id = splitPath[splitPath.length-1]
+
+  // const user = UsersList[id]
 
     const columns = [
         { field: 'id', headerName: 'Id', headerAlign: 'center', width: 80 },
@@ -21,8 +26,9 @@ export default function UserList() {
         renderCell: () => {
           return (
             <>
-              {/* <MdEdit className='editButton'/> */}
-              <UserModal className='editButton'/>
+              <Link to={`/edit-user/${UsersList.id}`}>
+                <MdEdit key={UsersList.id} className='editButton'/>
+              </Link>
               <FaEye className='detailButton'/>
               <MdDelete className='deleteButton' />
             </>
@@ -31,14 +37,13 @@ export default function UserList() {
       ];
 
   return (
-    <Dashboard>
-        <div>
-            <div className='heading'>
-                <h2>Liste des utilisateurs</h2>
-                <Button title={"Ajouter"} hasLink={true} link={'/new-user'}/>
-            </div>
-            <Table columns={columns} rows={UsersList}/>
-        </div>
-    </Dashboard>
+    <div>
+      <div className='heading'>
+          <h2>Liste des utilisateurs</h2>
+          <input type='files' accept='.xlsx' id='file'/>
+          <Button title={"Ajouter"} hasLink={true} link={'/new-user'}/>
+      </div>
+      <Table columns={columns} rows={UsersList}/>
+    </div>
   )
 }

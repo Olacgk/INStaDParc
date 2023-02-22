@@ -4,7 +4,6 @@ import Button from '../../components/button'
 import Table from '../../components/table'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import { FaEye } from 'react-icons/fa'
-import Dashboard from '../../components/Dashboard'
 import { Material_List } from '../../data'
 
 export default function ListMaterial() {
@@ -29,12 +28,12 @@ export default function ListMaterial() {
   ];
 
   return (
-    <Dashboard>
+    <div>
       <div className='heading'>
         <h2>Liste de matériels</h2>
         <Button title={"Ajouter"} hasLink={true} link={'/new-material'}/>
       </div>
       <Table columns={columns} rows={Material_List}/>
-    </Dashboard>
+    </div>
   )
 }

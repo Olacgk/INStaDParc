@@ -17,36 +17,40 @@
         font-size: 13px;
         color: rgb(184, 184, 184)
       }
-
-      .link{
-        text-decoration: none;
-        color: inherit;
-      }
-
-      ul {
-        list-style: none;
-        padding: 5px;
+      
+      .sidebar_item {
+        padding: 1em;
+        // padding-left: 1.5em;
         display: flex;
-        flex-direction: column;
-        gap: 1.5em;
-
-        li {
-          padding: 5px;
-          cursor: pointer;
-          display: flex;
-          border-radius: 10px;
-          gap: 1em;
-          transition: 0.1s ease-in-out;
-
-          .icon {
-            font-size: 20px;
-          }
-          
-          &.active, &:hover {
-            background-color: rgb(228, 228, 228);
-            color: black;
-          }
-        }
+        color: #FFFFFF;
+        list-style: none;
+        text-decoration: none;
+        align-items: center;
+        text-align: center;
+        justify-content: flex-start;
+        cursor: pointer;
+      }
+      .sidebar_item:hover {
+        background-color: #004B77;
+        // color: black;
+      }
+      .sidebar_item_active {
+        padding: 1em;
+        // padding-left: 1.5em;
+        display: flex;
+        color: white;
+        list-style: none;
+        text-decoration: none;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: #004B77;
+        cursor: pointer;
+      }
+      
+      .sidebar-item-label {
+        font-size: 1em;
+        // font-weight: 600;
+        margin-left: 15px;
       }
     }
   }

@@ -1,5 +1,20 @@
 .widgets {
     display: flex;
+    flex-direction: column;
+    gap: 2em;
     margin: 20px;
+    overflow-y: visible;
+
+    .home_stat{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .home_recap{
+      width: 100%;
+      display: flex;
+    }
 
   }
