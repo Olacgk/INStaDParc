@@ -1,10 +1,10 @@
 // import Button from './button/button.tsx'
 import './widgetLg.scss'
 
-const WidgetLg = () => {
+const WidgetLg = ({title}) => {
   return (
     <div className='widgetLgComponent'>
-      <h3 className="title">Dernière demandes</h3>
+      <h3 className="title">{title}</h3>
       <table>
         <tr className='firstTr'>
           <th>Demandeur</th>

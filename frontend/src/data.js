@@ -32,5 +32,173 @@ export const UsersList = [
 ];
 
 export const Material_List = [
+    {
+        id: 1,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Samsung',
+        etat: 'Neuf',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+    {
+        id: 2,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Ipad',
+        etat: 'Neuf',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+    {
+        id: 3,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Xiaomi',
+        etat: 'Neuf',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+    {
+        id: 4,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Xiaomi',
+        etat: 'Neuf',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+    {
+        id: 5,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Samsung',
+        etat: 'dos cassé',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+    {
+        id: 6,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Ipad',
+        etat: 'Touch id off',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+    {
+        id: 7,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Xiaomi',
+        etat: 'Neuf',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+    {
+        id: 8,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Itel',
+        etat: 'Ecran fissuré',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+    {
+        id: 9,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Samsung',
+        etat: 'Neuf',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+    {
+        id: 10,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Ipad',
+        etat: 'Neuf',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+    {
+        id: 11,
+        numImm: 'INSTAD/UNI/TAB/20/010',
+        type: 'Tablette',
+        marque: 'Samsung',
+        etat: 'Neuf',
+        disponibilite: 'Disponible',
+        dateAcquisition: '20/01/2020',
+        dateMiseEnService: '20/01/2020',
+        dateFinGarantie: '20/01/2022',
+    },
+];
 
+export const Demandes_List = [
+    
+];
+
+export const Rapport_List = [];
+
+export const home_user_content = [
+
+];
+
+export const home_admin_content = [
+    {
+        id: 1,
+        image: "https://pbs.twimg.com/profile_images/1200783415290793984/FrhNjsDK_400x400.jpg",
+        nom: "Jean Doe",
+        desc: "5000 tablettes pour le RGPH4",
+        textbutton: "Voir la demande",
+    },
+    {
+        id: 2,
+        image: "https://pbs.twimg.com/profile_images/1200783415290793984/FrhNjsDK_400x400.jpg",
+        nom: "Jean Doe",
+        desc: "5000 tablettes pour le RGPH4",
+        textbutton: "Voir la demande",
+    },
+    {
+        id: 3,
+        image: "https://pbs.twimg.com/profile_images/1200783415290793984/FrhNjsDK_400x400.jpg",
+        nom: "Jean Doe",
+        desc: "5000 tablettes pour le RGPH4",
+        textbutton: "Voir la demande",
+    },
+    {
+        id: 4,
+        image: "https://pbs.twimg.com/profile_images/1200783415290793984/FrhNjsDK_400x400.jpg",
+        nom: "Jean Doe",
+        desc: "5000 tablettes pour le RGPH4",
+        textbutton: "Voir la demande",
+    },
+    {
+        id: 5,
+        image: "https://pbs.twimg.com/profile_images/1200783415290793984/FrhNjsDK_400x400.jpg",
+        nom: "Jean Doe",
+        desc: "5000 tablettes pour le RGPH4",
+        textbutton: "Voir la demande",
+    },
 ];

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './sidebar.scss'
 // import { Link } from 'react-router-dom'
-import { sidebar_admin, sidebar_user } from '../../constants/sidebar-menu'
+import { sidebar_admin, sidebar_technicien, sidebar_user } from '../../constants/sidebar-menu'
 import { useLocation } from 'react-router-dom';
 import SideBarItem from './sidebar-item';
 
@@ -93,6 +93,21 @@ export default function Sidebar() {
           <div className="wrapper">
             <div className='menu'>
               {sidebar_user.map((item, index) => (
+                <div key={index} onClick={() => __navigate(item.id)}>
+                  <SideBarItem item={item} active={item.id === active}/>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+
+    case 'technicien':
+      return (
+        <div className="sidebarComponent">
+          <div className="wrapper">
+            <div className='menu'>
+              {sidebar_technicien.map((item, index) => (
                 <div key={index} onClick={() => __navigate(item.id)}>
                   <SideBarItem item={item} active={item.id === active}/>
                 </div>

@@ -10,7 +10,7 @@ import { DataGrid } from '@mui/x-data-grid';
 
 export default function Table({columns, rows}) {
   return (
-    <div style={{ height: 300, width: '100%', padding:'1em' }}>
+    <div style={{ height: 700, width: '100%', padding:'1em' }}>
       <DataGrid filterMode='server' checkboxSelection={true} rows={rows} columns={columns} style={{ backgroundColor: 'white'}} />
     </div>
   )

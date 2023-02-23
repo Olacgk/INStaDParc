@@ -31,11 +31,33 @@ export default function NewMaterial() {
             <label htmlFor='name'>Description</label>
             <textarea name="description"  className='formInput areatext' placeholder='modèle, couleur, adresse MAC...'/>
           </div>
+          <div className='newMateriel_form_container'>
+            <label htmlFor='name'>Disponibilité</label>
+            <select name="choice" className='formInput'>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+            </select>
+          </div>
+          <div className='newMateriel_form_container'>
+            <label htmlFor='name'>Réformé</label>
+            <select name="choice" className='formInput'>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+            </select>
+          </div>
         </div>
         <div className='newMateriel_form_rgroup'>
           <div className='newMateriel_form_container'>
             <label htmlFor='name'>Date d'acquisition</label>
             <input type='date' className='formInput' />
+          </div>
+          <div className='newMateriel_form_container'>
+            <label htmlFor='name'>Date de mise en service</label>
+            <input type='date' className='formInput' />
+          </div>
+          <div className='newMateriel_form_container'>
+            <label htmlFor='name'>Date de réforme</label>
+            <input type='date' className='formInput'/>
           </div>
           <div className='newMateriel_form_container'>
             <label htmlFor='name'>Marque</label>

@@ -1,19 +1,24 @@
-.list_demand{
-    .containerApp {
-        display: flex;
-        margin-top: 10px;
-    
-        .containerApp_right{
-          max-width: 80%;
-          flex: 4;
+.heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
 
-          .heading{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2em;
+}
 
-          }
-        }
-      }
+.listDemande{
+  margin: 1em;
+  display: flex;
+  justify-content: space-between;
+  
+  .demande_mat{
+    background-color: white;
+    padding: 1em;
+    width: 48%;
+  }
+  .assign_mat{
+    background-color: white;
+    padding: 1em;
+    width: 48%;
+  }
 }

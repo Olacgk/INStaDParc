@@ -13,8 +13,8 @@ export default function ListMaterial() {
     { field: 'numImm', headerName: 'Num. Immatriculation',  headerAlign: 'center', width: 175 },
     { field: 'type', headerName: 'Type', headerAlign: 'center', width: 150 },
     { field: 'marque', headerName: 'Marque',  headerAlign: 'center', width: 150 },
-    { field: 'Etat', headerName: 'Etat',  headerAlign: 'center', width: 150 },
-    { field: 'date_acquisition', headerName: 'Date d\'acquisition', headerAlign: 'center', width: 150 },
+    { field: 'etat', headerName: 'Etat',  headerAlign: 'center', width: 150 },
+    { field: 'disponibilite', headerName: 'Disponibilité', headerAlign: 'center', width: 150 },
     { field: 'col7', headerName: 'Actions', headerAlign: 'center', width: 80,
     renderCell: () => {
       return (

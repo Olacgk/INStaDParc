@@ -40,7 +40,6 @@ export default function UserList() {
     <div>
       <div className='heading'>
           <h2>Liste des utilisateurs</h2>
-          <input type='files' accept='.xlsx' id='file'/>
           <Button title={"Ajouter"} hasLink={true} link={'/new-user'}/>
       </div>
       <Table columns={columns} rows={UsersList}/>

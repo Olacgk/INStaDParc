@@ -1,66 +1,28 @@
 import { MdVisibility } from 'react-icons/md'
 import './widgetSm.scss'
 
-const WidgetSm = () => {
+const WidgetSm = ({title, data}) => {
+
+  
   return (
     <div className='widgetSmComponent'>
-      <span className='title'>Liste des techniciens</span>
+      <span className='title'>{title}</span>
       <ul>
-        <li>
-          <img src="https://pbs.twimg.com/profile_images/1200783415290793984/FrhNjsDK_400x400.jpg" alt="" />
-          <div>
-            <span className='username'>Luisa Campos</span>
-            <span className='userTitle'>Developer</span>
-          </div>
-          <button>
-            <MdVisibility className='icon' />
-            Display
-          </button>
-        </li>
-        <li>
-          <img src="https://pbs.twimg.com/profile_images/1200783415290793984/FrhNjsDK_400x400.jpg" alt="" />
-          <div>
-            <span className='username'>Luisa Campos</span>
-            <span className='userTitle'>Developer</span>
-          </div>
-          <button>
-            <MdVisibility className='icon' />
-            Display
-          </button>
-        </li>
-        <li>
-          <img src="https://pbs.twimg.com/profile_images/1200783415290793984/FrhNjsDK_400x400.jpg" alt="" />
-          <div>
-            <span className='username'>Luisa Campos</span>
-            <span className='userTitle'>Developer</span>
-          </div>
-          <button>
-            <MdVisibility className='icon' />
-            Display
-          </button>
-        </li>
-        <li>
-          <img src="https://pbs.twimg.com/profile_images/1200783415290793984/FrhNjsDK_400x400.jpg" alt="" />
-          <div>
-            <span className='username'>Luisa Campos</span>
-            <span className='userTitle'>Developer</span>
-          </div>
-          <button>
-            <MdVisibility className='icon' />
-            Display
-          </button>
-        </li>
-        <li>
-          <img src="https://pbs.twimg.com/profile_images/1200783415290793984/FrhNjsDK_400x400.jpg" alt="" />
-          <div>
-            <span className='username'>Luisa Campos</span>
-            <span className='userTitle'>Developer</span>
-          </div>
-          <button>
-            <MdVisibility className='icon' />
-            Display
-          </button>
-        </li>
+        {
+          data.forEach(item => {
+            <li>
+              <img src={item.image} alt="" />
+              <div>
+                <span className='username'>{item.nom}</span>
+                <span className='userTitle'>{item.desc}</span>
+              </div>
+              <button>
+                <MdVisibility className='icon' />
+                {item.textbutton}
+              </button>
+            </li>
+          })
+        }
       </ul>
     </div>
   )

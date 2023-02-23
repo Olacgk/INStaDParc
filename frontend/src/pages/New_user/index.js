@@ -5,12 +5,12 @@ import Button from '../../components/button'
 export default function NewUser({isUpdate=false}) {
   return (
     <form className='newUser_form'>
-      {isUpdate? <h2 className='newUser_title'>Ajouter un nouvel utilisateur</h2> : <h2 className='newUser_title'>Modifier un utilisateur</h2>  }
+      {!isUpdate? <h2 className='newUser_title'>Ajouter un nouvel utilisateur</h2> : <h2 className='newUser_title'>Modifier un utilisateur</h2>  }
       <div className='newUser_form_mainContainer'>
         <div className='newUser_form_lgroup'>
           <div className='newUser_form_container'>
             <label htmlFor='name'>Nom</label>
-            <input type='text' className='formInput' placeholder='INSTAD/INSTAD/ORD/20/010'/>
+            <input type='text' className='formInput' />
           </div>
           <div className='newUser_form_container'>
             <label htmlFor='name'>Prénom</label>
@@ -24,7 +24,7 @@ export default function NewUser({isUpdate=false}) {
         <div className='newUser_form_rgroup'>
           <div className='newUser_form_container'>
             <label htmlFor='name'>Direction</label>
-            <input type='date' className='formInput' />
+            <input type='text' className='formInput' />
           </div>
           <div className='newUser_form_container'>
             <label htmlFor='name'>Service</label>

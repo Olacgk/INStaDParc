@@ -1,0 +1,82 @@
+.profile_container {
+  display: flex;
+  margin: 1em;
+  justify-content: space-between;
+
+  .edit_profile{
+      width: 60%;
+      background-color: white;
+      padding: 1em;
+      
+      form{
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+
+    }
+
+    .edit_profile_container{
+        display: flex;
+        justify-content: space-between;
+
+        
+        .edit_profile_part{
+            width: 50%;
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            gap: 3em;
+
+            .newUser_form_container{
+                display: flex;
+                justify-content: space-around;
+
+                .formInput{
+                    border: none;
+                    border-bottom: 1px solid #ccc;
+                    width: 50%;
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .form_button{
+        display: flex;
+        justify-content: center;
+    }
+  }
+
+  .view_profile{
+    width: 35%;
+    background-color: white;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    .avatar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile_info{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+        justify-content: center;
+
+        .profile_fonction{
+            text-align: center;
+        }
+
+    }
+    .log_out{
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+    }
+  }
+}

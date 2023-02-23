@@ -37,7 +37,7 @@ const sidebar_admin = [
     {
         id: 6,
         title: 'Rapports',
-        path: '/rapports',
+        path: '/under-construction',
         icon: <HiDocumentText className='icon' />
     },
     {
@@ -76,7 +76,7 @@ const sidebar_technicien = [
     {
         id: 6,
         title: 'Rapports',
-        path: '/rapports',
+        path: '/under-construction',
         icon: <HiDocumentText className='icon' />
     },
     {
