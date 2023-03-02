@@ -25,7 +25,6 @@ const seeddb = async () => {
 
     await directionSchema.findOne({ abbrv: "DSIBD" }).then(d => {
         service_data[0].direction = d._id;
-        console.log(service_data);
     });
     
     await serviceSchema.insertMany(service_data)

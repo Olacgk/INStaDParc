@@ -20,21 +20,18 @@ import Layout from "./Layout";
 
 const App = () => {
   const [user, setUser] = useState();
-  useEffect(()=>{
-    setUser(JSON.parse(localStorage.getItem('user')) )
-  },[])
-  const NotLogged = ({ logged }) => logged ? <Outlet /> : <Navigate replace to="/Login" />
-  const Logged = ({ logged }) => logged ? <Layout /> : <Navigate replace to="/Login" />
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem('user')))
+  }, [])
+  const Logged = ({ logged }) => logged ? <Layout /> : <Navigate replace to="login" />
 
   return (
     <Auth.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <Routes>
-          <Route element={<NotLogged logged={user} />}>
-            <Route path='login' element={<Authentification />} />
-          </Route>
+          <Route path='login' element={<Authentification />} />
           <Route element={<Logged logged={user} />}>
-            <Route path="/" element={<Home  />} />
+            <Route path="/" element={<Home />} />
             <Route path="/materials" element={<ListMaterial />} />
             <Route path="/new-material" element={<NewMaterial />} />
             <Route path="/liste-demandes" element={<ListDemande />} />

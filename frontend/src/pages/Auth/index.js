@@ -14,7 +14,7 @@ export default function Authentification() {
   // const [success, setSuccess] = useState(false);
   useEffect(()=>{
     if(user) navigate('/');
-  },[])
+  },[user])
 
   const [errorMessage, setErrorMessage] = useState(undefined);
   const handleSubmit = (e) => {
