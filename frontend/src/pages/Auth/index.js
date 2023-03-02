@@ -2,12 +2,12 @@ import React, { useState, useRef, useContext } from 'react'
 import './styles.scss'
 import logo from '../../assets/logo_instad.png'
 import { useNavigate  } from "react-router-dom";
-import AuthContext from '../../context/AuthProvider';
+import Auth from '../../context/Auth';
 
 
 export default function Authentification() { 
 
-  const {setAuth} = useContext(AuthContext);
+  const {setAuth} = useContext(Auth);
   const navigate = useNavigate();
   const userRef = useRef();
   const [user, setUser] = useState('');

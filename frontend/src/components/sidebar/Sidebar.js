@@ -13,11 +13,32 @@ export default function Sidebar() {
   const [active, setActive] = useState(1);
 
   useEffect(() => {
-      sidebar_admin.forEach(element => {
+    switch (role) {
+      case 'admin':
+        sidebar_admin.forEach(element => {
           if (location.pathname === element.path) {
             setActive(element.id);
           }
       });
+        break;
+      case 'technicien':
+        sidebar_technicien.forEach(element => {
+          if (location.pathname === element.path) {
+            setActive(element.id);
+          }
+        });
+        break;
+      case 'user':
+        sidebar_user.forEach(element => {
+          if (location.pathname === element.path) {
+            setActive(element.id);
+          }
+        });
+        break;
+      default:
+        break;
+    }
+      
   }, [location.pathname])
 
   const __navigate = (id) => {
