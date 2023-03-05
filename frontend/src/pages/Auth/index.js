@@ -49,10 +49,11 @@ export default function Authentification() {
       <div className='authentification_leftpart_form'>
         <form onSubmit={handleSubmit}>
           <h2 className='authentification_title'>AUTHENTIFICATION</h2>
+          {errorMessage && <p className='error'>{errorMessage}</p>}
           <label htmlFor="email">Email</label>
-          <input type="email" placeholder="email" id='email' ref={emailFieldRef} autoComplete="off" required />
+          <input type="email" placeholder="email" id='email' ref={emailFieldRef} autoComplete="off" required className={errorMessage ? 'errorfield' : ''} />
           <label htmlFor="password">Mot de passe</label>
-          <input type="password" placeholder="Mot de passe" id='password' ref={passwordFieldRef} required />
+          <input type="password" placeholder="Mot de passe" id='password' ref={passwordFieldRef} required className={errorMessage ? 'errorfield' : ''} />
           <div className='authentication_button'>
             <button type='submit' value={'submit'} >Se Connecter</button>
           </div>

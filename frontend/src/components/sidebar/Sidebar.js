@@ -1,13 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import './sidebar.scss'
-// import { Link } from 'react-router-dom'
 import { sidebar_admin, sidebar_technicien, sidebar_user } from '../../constants/sidebar-menu'
 import { useLocation } from 'react-router-dom';
 import SideBarItem from './sidebar-item';
 
 export default function Sidebar() {
 
-  const role = 'admin';
+  const [user, setUser] = useState();
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem('user')))
+  }, [])
+  const role = user?.userRole
   const location = useLocation();
 
   const [active, setActive] = useState(1);

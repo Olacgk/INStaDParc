@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles.scss'
 import Cards from '../../components/cards'
 import { FaUsers, FaTools } from 'react-icons/fa'
@@ -46,8 +46,12 @@ const TechnicianDashboard = () => (
   </div>
 )
 
-export default function Home({ role }) {
-  role = 'admin'
+export default function Home() {
+  const [user, setUser] = useState();
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem('user')))
+  }, [])
+  const role = user?.userRole
   switch (role) {
     case 'admin':
       return <AdminDashboard />

@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles.scss'
 import Button from '../../components/button'
 import Table from '../../components/table'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import { FaEye } from 'react-icons/fa'
-import { Material_List } from '../../data'
+// import { Material_List } from '../../data'
 
 export default function ListMaterial() {
 
@@ -27,13 +27,24 @@ export default function ListMaterial() {
     } },
   ];
 
+  const [materials, setMaterials] = useState([])
+
+      useEffect(() => {
+        fetch('http://localhost:8080/api/user/get-users')
+        .then(res => res.json())
+        .then(data => {
+          setMaterials(data)
+        })
+        .catch(err => console.error(err))
+      }, [])
+
   return (
     <div>
       <div className='heading'>
         <h2>Liste de matériels</h2>
         <Button title={"Ajouter"} hasLink={true} link={'/new-material'}/>
       </div>
-      <Table columns={columns} rows={Material_List}/>
+      <Table columns={columns} rows={materials}/>
     </div>
   )
 }

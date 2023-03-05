@@ -3,8 +3,6 @@
     height: 100vh;
 
     .authentification_rightpart{
-        // background-color: red;
-        // background-image: url(../../assets/authBack1.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         display: flex;
@@ -40,11 +38,18 @@
             flex-direction: column;
             gap: 1em;
 
+            .error{
+                color: red;
+                font-size: 0.8em;}
+
             input{
                 height: 3em;
                 padding: 1em;
                 border: 1px solid gray;
                 border-radius: 9px;
+            }
+            .errorfield{
+                border: 1px solid red;
             }
 
             button{

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Authentification from "./pages/Auth";
 // import Interventions from "./pages/Interventions";
 import ListDemande from "./pages/Liste_demande";
@@ -24,7 +24,7 @@ const App = () => {
     setUser(JSON.parse(localStorage.getItem('user')))
   }, [])
   const Logged = ({ logged }) => logged ? <Layout /> : <Navigate replace to="login" />
-
+console.log(user)
   return (
     <Auth.Provider value={{ user, setUser }}>
       <BrowserRouter>

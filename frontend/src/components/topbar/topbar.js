@@ -1,8 +1,16 @@
 import './topbar.scss'
 import logo from '../../assets/logo_instad.png'
-import  { MdNotifications, MdSettings} from 'react-icons/md'
+import  { MdNotifications, MdLogout } from 'react-icons/md'
 
 const Topbar = () => {
+
+  function handleLogout() {
+    // Effacer les informations d'authentification du navigateur de l'utilisateur
+    localStorage.removeItem('user');
+    // Rediriger l'utilisateur vers la page de connexion ou la page d'accueil
+    window.location.href = '/login';
+  }
+  
   return (
     <div className='topbarComponent'>
       <div className="wrapper">
@@ -12,14 +20,14 @@ const Topbar = () => {
         <div className="right">
           <div className="icon">
             <MdNotifications />
-            <span>2</span>
+            {/* <span>2</span> */}
           </div>
           {/* <div className="icon">
             <MdLanguage />
             <span>2</span>
           </div> */}
           <div className="icon">
-            <MdSettings />
+            <MdLogout  onClick={handleLogout}/>
           </div>
           {/* <img src="https://i.ibb.co/xG2ygZT/btter.jpg" alt="adminPic" /> */}
         </div>
