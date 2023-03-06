@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 require('dotenv/config');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 app.use(express.json());
 app.use((req, res, next) => {
@@ -19,6 +20,11 @@ mongoose.connect(process.env.DB_CONNECTION, ()=>{
   console.log("Connected to DB")
   });
 
+app.use(cors(
+  {
+    origin: "http://localhost:3000",
+  }
+));
 
 const authRoute = require('./routes/auth');
 app.use('/api/auth', authRoute);
@@ -34,5 +40,11 @@ app.use('/api/type', typeRoute);
 
 const marqueRoute = require('./routes/marque');
 app.use('/api/marque', marqueRoute);
+
+const serviceRoute = require('./routes/service');
+app.use('/api/service', serviceRoute);
+
+const directionRoute = require('./routes/direction');
+app.use('/api/direction', directionRoute);
 
 app.listen(8080, ()=> console.log("Listening to port 8080"))

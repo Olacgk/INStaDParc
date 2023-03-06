@@ -3,16 +3,16 @@ const Material = require('../model/Materiel');
 exports.addMaterial = (req , res , next )=>{
     const material = new Material({
         numImmatriculation: req.body.numImmatriculation,
-        numSerie: req.body.numSerie,
+        // numSerie: req.body.numSerie,
         description: req.body.description,
         etat: req.body.etat,
         proprietaire: req.body.proprietaire,
         available: req.body.available,
-        borrowerName: req.body.borrowerName,
+        // borrowerName: req.body.borrowerName,
         utilisateur: req.body.utilisateur,
         dateAcquisition: req.body.dateAcquisition,
         dateMiseEnService: req.body.dateMiseEnService,
-        dateFinService: req.body.dateFinService,
+        // dateFinService: req.body.dateFinService,
         type: req.body.type,
         marque: req.body.marque,
     });

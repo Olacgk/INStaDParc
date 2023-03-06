@@ -17,6 +17,7 @@ const userSchema = mongoose.Schema({
     email : {
         type: String,
         required: true,
+        unique: true,
         min : 6,
         max : 255
     },
@@ -36,7 +37,7 @@ const userSchema = mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    fonction : {type: String, required: true, min : 6, max : 255},
+    // fonction : {type: String, required: true, min : 6, max : 255},
     service : { type: mongoose.Schema.Types.ObjectId, ref: 'Service', required: true },
     direction : { type: mongoose.Schema.Types.ObjectId, ref: 'Direction', required: true },
 });

@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../model/Users');
+const Service = require('../model/Service');
 
 exports.addUser = (req , res , next )=>{
   bcrypt.hash("Code_temporaire", 10)
@@ -11,7 +12,7 @@ exports.addUser = (req , res , next )=>{
         email: req.body.email,
         password: hash,
         role: req.body.role,
-        fonction: req.body.fonction,
+        // fonction: req.body.fonction,
         service: req.body.service,
         direction: req.body.direction,
     });
@@ -38,7 +39,7 @@ exports.login = (req , res , next )=>{
         userName : user.name,
         userPrenom : user.prenom,
         userRole : user.role,
-        userFonction : user.fonction,
+        // userFonction : user.fonction,
         userService : user.service,
         userDirection : user.direction, 
         token : jwt.sign(
@@ -73,7 +74,7 @@ exports.modifyUser = (req , res , next )=>{
         email: req.body.email,
         password: hash,
         role: req.body.role,
-        fonction: req.body.fonction,
+        // fonction: req.body.fonction,
         service: req.body.service,
         direction: req.body.direction,
     });
@@ -86,7 +87,21 @@ exports.modifyUser = (req , res , next )=>{
 
 exports.getAllUsers = (req , res , next )=>{
   User.find()
-  .then(users => res.status(200).json(users))
+  .populate('service')
+  .exec()
+  .then(users => {
+    const usersWithService = users.map(user => {
+      return {
+        _id: user._id,
+        name: user.name,
+        prenom: user.prenom,
+        email: user.email,
+        role: user.role,
+        service: user.service.abbrv,
+        direction: user.direction,
+      };
+    });
+    res.status(200).json(usersWithService)})
   .catch(error => res.status(400).json({ error }));
 }
 
