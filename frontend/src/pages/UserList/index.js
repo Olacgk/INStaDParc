@@ -5,15 +5,32 @@ import { MdDelete, MdEdit } from 'react-icons/md'
 import { FaEye } from 'react-icons/fa'
 import Button from '../../components/button'
 // import { UsersList } from '../../data'
-import { Link} from 'react-router-dom'
+// import { Link, useNavigate} from 'react-router-dom'
 
 export default function UserList() {
-  
-  // const location = useLocation();
-  // var splitPath = location.pathname.split("/")
-  // var id = splitPath[splitPath.length-1]
 
-  // const user = UsersList[id]
+  // const navigate = useNavigate();
+  
+  const deleteUser = (id) => {
+    fetch(`/api/user/delete-user/${id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    }).then((res)=> {
+      if (!res.ok) {
+        throw new Error("Une erreur s'est produite lors de la suppression de l'utilisateur")
+      }
+      return res.json()
+    })
+      .then((data)=> {console.log('Utilisateur supprimé avec succès',data)
+      clearTimeout(
+        setTimeout(() => {
+          alert('Utilisateur supprimé avec succès')
+        }, 2000)
+      )
+      // navigate('/liste-utilisateurs')
+    })
+      .catch((err)=> console.log('Erreur lors de la suppression de l\'utilisateur',err))
+  }
 
     const columns = [
         // { selector: 'id', name: 'Id', headerAlign: 'center', width: 80 },
@@ -25,15 +42,19 @@ export default function UserList() {
         { name: 'Actions',cell: () => {
           return (
             <>
-              <Link to={`/edit-user/:${users.id}`}>
+              {/* <Link to={`/edit-user/:${users.id}`}>
                 <MdEdit key={users.id} className='editButton'/>
               </Link>
               <FaEye className='detailButton'/>
-              <MdDelete className='deleteButton'/>
+              <MdDelete className='deleteButton'/> */}
+              <button onClick={deleteUser} className='deleteButton'> <MdDelete size={'20px'}/> </button>
+              <button onClick={()=>{}} className='editButton'> <MdEdit size={'20px'}/> </button>
+              <button onClick={()=>{}} className='detailButton'> <FaEye size={'20px'}/> </button>
             </>
           )
         } },
       ];
+
 
       const [users, setUsers] = useState([])
 
@@ -53,7 +74,7 @@ export default function UserList() {
           <h2>Liste des utilisateurs</h2>
           <Button title={"Ajouter"} hasLink={true} link={'/new-user'}/>
       </div>
-      <Table columns={columns} rows={users}/>
+      <Table columns={columns} rows={users} keyField={users._id} />
     </div>
   )
 }

@@ -9,19 +9,19 @@ import { FaEye } from 'react-icons/fa'
 export default function ListMaterial() {
 
   const columns = [
-    { field: 'id', headerName: 'Id', headerAlign: 'center', width: 80 },
-    { field: 'numImm', headerName: 'Num. Immatriculation',  headerAlign: 'center', width: 175 },
-    { field: 'type', headerName: 'Type', headerAlign: 'center', width: 150 },
-    { field: 'marque', headerName: 'Marque',  headerAlign: 'center', width: 150 },
-    { field: 'etat', headerName: 'Etat',  headerAlign: 'center', width: 150 },
-    { field: 'disponibilite', headerName: 'Disponibilité', headerAlign: 'center', width: 150 },
-    { field: 'col7', headerName: 'Actions', headerAlign: 'center', width: 80,
-    renderCell: () => {
+    // { selector: row => row. 'id', name: 'Id', headerAlign: 'center', width: 80 },
+    { selector: row => row.numImmatriculation , name: 'Num. Immatriculation'},
+    { selector: row => row.type , name: 'Type' },
+    { selector: row => row.marque , name: 'Marque' },
+    { selector: row => row.etat , name: 'Etat' },
+    { selector: row => row.available , name: 'Disponibilité' },
+    {  name: 'Actions',
+    cell: () => {
       return (
         <>
-          <MdEdit className='editButton'/>
-          <FaEye className='detailButton'/>
-          <MdDelete className='deleteButton' />
+        <button onClick={()=>{}} className='deleteButton'> <MdDelete size={'20px'}/> </button>
+        <button onClick={()=>{}} className='editButton'> <MdEdit size={'20px'}/> </button>
+        <button onClick={()=>{}} className='detailButton'> <FaEye size={'20px'}/> </button>
         </>
       )
     } },
@@ -30,14 +30,14 @@ export default function ListMaterial() {
   const [materials, setMaterials] = useState([])
 
       useEffect(() => {
-        fetch('http://localhost:8080/api/user/get-users')
+        fetch('http://localhost:8080/api/material/get-materials')
         .then(res => res.json())
         .then(data => {
           setMaterials(data)
         })
         .catch(err => console.error(err))
       }, [])
-
+      console.log(materials)
   return (
     <div>
       <div className='heading'>

@@ -9,18 +9,21 @@ import DataTable from 'react-data-table-component';
 //     { id: 3, col1: 'MUI', col2: 'is Amazing' },
 //   ];
 
-export default function Table({columns, rows}) {
+export default function Table({columns, rows, keyField, onRowClicked}) {
   return (
     <div style={{ height: 700, width: '100%', padding:'1em' }}>
       <DataTable direction="auto"
-        fixedHeaderScrollHeight="300px"
+        fixedHeader
+        fixedHeaderScrollHeight="350px"
         highlightOnHover
         pagination
         responsive
         selectableRows
         subHeader
         subHeaderAlign="right"
-        subHeaderWrap 
+        subHeaderWrap
+        onRowClicked={onRowClicked}
+        keyField={keyField}
         data={rows} 
         columns={columns} 
         style={{ backgroundColor: 'white'}} />

@@ -2,8 +2,9 @@ import React, { useRef, useState, useEffect } from 'react'
 import './styles.scss'
 import Button from '../../components/button'
 import { BiArrowBack } from 'react-icons/bi'
-import { useNavigate } from 'react-router-dom';
-import ModalComponent from '../../components/Modal';
+// import { useNavigate } from 'react-router-dom';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
 export default function NewUser({isUpdate=false}) {
 
@@ -14,7 +15,11 @@ export default function NewUser({isUpdate=false}) {
   const serviceFieldRef = useRef();
   const roleFieldRef = useRef();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [severity, setSeverity] = useState('');
+  const [alertTitle, setAlertTitle] = useState('');
 
   const createUser = (userData) => {
     fetch("http://localhost:8080/api/user/new-user", {
@@ -27,13 +32,20 @@ export default function NewUser({isUpdate=false}) {
       }
       return res.json()
     })
-      .then((data)=> {console.log('Utilisateur créé avec succès',data)
-      setTimeout(() => {
-        <ModalComponent openModal={true}/>
-      }, 2000);
-      navigate('/liste-utilisateurs')
+      .then((data)=> {
+        setSeverity('success')
+        setShowAlert(true)
+        setAlertTitle('Succès')
+        setAlertMessage(`Utilisateur ${nameFieldRef?.current?.value} créé avec succès`)
+      console.log('Utilisateur créé avec succès',data)
+      // navigate('/liste-utilisateurs')
     })
-      .catch((err)=> console.log('Erreur lors de la création de l\'utilisateur',err))
+      .catch((err)=> {
+        setSeverity('error')
+        setShowAlert(true)
+        setAlertTitle('Erreur')
+        setAlertMessage("Une erreur s'est produite lors de la création de l'utilisateur")
+        console.log('Erreur lors de la création de l\'utilisateur',err)})
   }
 
   const [ directions, setDirections ] = useState([]);
@@ -58,10 +70,6 @@ export default function NewUser({isUpdate=false}) {
     .catch(err => console.error(err))
   })
 
-  function retourPagePrecedente() {
-    window.history.go(-1);
-  }
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -78,8 +86,12 @@ export default function NewUser({isUpdate=false}) {
   return (
     <form className='newUser_form' onSubmit={handleSubmit}>
       <div className='newUser_form_backButton'>
-        <Button title={<BiArrowBack/>} onClick={retourPagePrecedente}/>
+        <Button title={<BiArrowBack/>} hasLink={true} link={'/liste-utilisateurs'} />
       </div>
+      {showAlert && <Alert severity={severity} onClose={() => setShowAlert(false)}>
+        <AlertTitle>{alertTitle}</AlertTitle>
+        {alertMessage}
+      </Alert>}
       {!isUpdate? <h2 className='newUser_title'>Ajouter un nouvel utilisateur</h2> : <h2 className='newUser_title'>Modifier un utilisateur</h2>  }
       <div className='newUser_form_mainContainer'>
         <div className='newUser_form_lgroup'>
@@ -118,9 +130,9 @@ export default function NewUser({isUpdate=false}) {
           <div className='newUser_form_container'>
             <label htmlFor='name'>Rôle</label>
             <select name="choice" className='formInput' ref={roleFieldRef} id='role' required>
-              <option value="employe">Employé</option>
+              <option value="user">Employé</option>
               <option value="technicien">Technicien</option>
-              <option value="administrateur">Administrateur</option>
+              <option value="admin">Administrateur</option>
             </select>
           </div>
         </div>

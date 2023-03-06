@@ -4,11 +4,17 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 1em;
+    overflow: scroll;
+    max-height: 600px;
 
+    .newMat_form_backButton{
+        cursor: pointer;
+        padding: 1em;
+    }
     .newMateriel_title{
         text-align: center;
-        padding: 1em;
+        padding-bottom: 1em;
     }
 
     .newMateriel_form_mainContainer{
