@@ -6,6 +6,7 @@ import { FaEye } from 'react-icons/fa'
 import Button from '../../components/button'
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
+import ModalDetail from '../../components/ModalUserDetail'
 // import { UsersList } from '../../data'
 // import { Link, useNavigate} from 'react-router-dom'
 
@@ -61,7 +62,7 @@ export default function UserList() {
               <MdDelete className='deleteButton'/> */}
               <button onClick={()=>deleteUser(row._id)} className='deleteButton'> <MdDelete size={'20px'}/> </button>
               <button onClick={()=>{}} id={row._id} className='editButton'> <MdEdit size={'20px'}/> </button>
-              <button onClick={()=>{}} id={row._id} className='detailButton'> <FaEye size={'20px'}/> </button>
+              <ModalDetail id={row._id}/>
             </>
           )
         }, button: true, allowOverflow: true, ignoreRowClick: true },

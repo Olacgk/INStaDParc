@@ -3,7 +3,7 @@ import './styles.scss'
 import Button from '../../components/button'
 import Table from '../../components/table'
 import { MdDelete, MdEdit } from 'react-icons/md'
-import { FaEye } from 'react-icons/fa'
+import ModalDetail from '../../components/ModalMatDetail'
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 // import { Material_List } from '../../data'
@@ -21,14 +21,18 @@ export default function ListMaterial() {
     { selector: row => row.type , name: 'Type' },
     { selector: row => row.marque , name: 'Marque' },
     { selector: row => row.etat , name: 'Etat' },
-    { selector: row => row.available , name: 'Disponibilité' },
+    { selector: row => row.available , name: 'Disponibilité', cell: (row) => {
+      return (
+        <div> {row.available ? 'Disponible' : 'Non disponible'} </div>
+      )
+    } },
     {  name: 'Actions',
     cell: (row) => {
       return (
         <>
         <button onClick={()=> deleteMat(row._id)} className='deleteButton'> <MdDelete size={'20px'}/> </button>
         <button onClick={()=>{}} className='editButton'> <MdEdit size={'20px'}/> </button>
-        <button onClick={()=>{}} className='detailButton'> <FaEye size={'20px'}/> </button>
+        <ModalDetail id={row._id} />
         </>
       )
     } },
