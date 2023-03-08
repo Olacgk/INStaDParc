@@ -107,6 +107,19 @@ exports.getAllUsers = (req , res , next )=>{
 
 exports.getOneUser = (req , res , next )=>{
   User.findOne({_id : req.params.id})
-  .then(user => res.status(200).json(user))
+  .populate('service')
+  .populate('direction')
+  .exec()
+  .then(user => {
+    const oneUser = {
+      _id: user._id,
+      name: user.name,
+      prenom: user.prenom,
+      email: user.email,
+      role: user.role,
+      service: user.service.nomService,
+      direction: user.direction.nomDirection,
+    };
+    res.status(200).json(oneUser)})
   .catch(error => res.status(404).json({ error }));
 }

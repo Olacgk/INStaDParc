@@ -9,9 +9,9 @@ const materielSchema = mongoose.Schema({
     dateAcquisition: {type: Date, required: true},
     dateMiseEnService: {type: Date },
     proprietaire: { type: Boolean, required: true},
-    // utilisateur: { type: String, min: 6, max: 255},
+    utilisateur: { type: String, min: 6, max: 255},
     available: { type: Boolean, required: true, default: true},
-    // borrowerName: { type: String, min: 6, max: 255, default: ''},
+    reforme: { type: Boolean, required: true, default: false},
     type: {type: mongoose.Schema.Types.ObjectId, ref: 'Type', required: true },
     marque: {type: mongoose.Schema.Types.ObjectId, ref: 'Marque', required: true },
 });

@@ -5,15 +5,14 @@ const marque = require('../model/Marque');
 exports.addMaterial = (req , res , next )=>{
     const material = new Material({
         numImmatriculation: req.body.numImmatriculation,
-        // numSerie: req.body.numSerie,
         description: req.body.description,
         etat: req.body.etat,
         proprietaire: req.body.proprietaire,
         available: req.body.available,
-        // utilisateur: req.body.utilisateur,
+        utilisateur: req.body.utilisateur,
+        reforme: req.body.reforme,
         dateAcquisition: req.body.dateAcquisition,
         dateMiseEnService: req.body.dateMiseEnService,
-        // dateFinService: req.body.dateFinService,
         type: req.body.type,
         marque: req.body.marque,
     });
@@ -24,7 +23,25 @@ exports.addMaterial = (req , res , next )=>{
 
 exports.getOneMaterial = (req , res , next )=>{
     Material.findOne({ _id: req.params.id })
-    .then(material => res.status(200).json(material))
+    .populate('type')
+    .populate('marque')
+    .exec()
+    .then(material => {
+        const response = {
+            _id : material._id,
+            numImmatriculation: material.numImmatriculation,
+            type: material.type.nomType,
+            marque: material.marque.nomMarque,
+            description: material.description,
+            etat: material.etat,
+            proprietaire: material.proprietaire,
+            available: material.available,
+            dateAcquisition: material.dateAcquisition,
+            dateMiseEnService: material.dateMiseEnService,
+            utilisateur: material.utilisateur,
+            reforme: material.reforme,
+        };
+        res.status(200).json(response)})
     .catch(error => res.status(404).json({ error }));
 }
 
@@ -56,16 +73,14 @@ exports.modifyMaterial = (req , res , next )=>{
     const material = new Material({
         _id: req.params.id,
         numImmatriculation: req.body.numImmatriculation,
-        numSerie: req.body.numSerie,
         description: req.body.description,
         etat: req.body.etat,
         proprietaire: req.body.proprietaire,
         available: req.body.available,
-        borrowerName: req.body.borrowerName,
         utilisateur: req.body.utilisateur,
         dateAcquisition: req.body.dateAcquisition,
         dateMiseEnService: req.body.dateMiseEnService,
-        dateFinService: req.body.dateFinService,
+        reforme: req.body.reforme,
         type: req.body.type,
         marque: req.body.marque,
     });
