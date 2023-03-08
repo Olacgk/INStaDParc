@@ -53,7 +53,7 @@ export default function NewMaterial() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const materialData = {
-      numImm: numImmFieldRef.current.value,
+      numImmatriculation: numImmFieldRef.current.value,
       type: typeFieldRef.current.value,
       projet: projetFieldRef.current.value,
       proprietaire: proprietaireFieldRef.current.value,
@@ -144,7 +144,7 @@ export default function NewMaterial() {
           <div className='newMateriel_form_container'>
             <label htmlFor='name'>Date de mise en service</label>
             <input type='date' className='formInput' ref={dateMiseEnServiceFieldRef} id='dateMiseServ'/>
-          </div>
+          </div>  
           <div className='newMateriel_form_container'>
             <label htmlFor='name'>Marque</label>
             <select name="choice" className='formInput' ref={marqueFieldRef} id='marque' required>

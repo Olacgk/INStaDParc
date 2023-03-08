@@ -4,12 +4,18 @@ import Table from '../../components/table'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import { FaEye } from 'react-icons/fa'
 import Button from '../../components/button'
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 // import { UsersList } from '../../data'
 // import { Link, useNavigate} from 'react-router-dom'
 
 export default function UserList() {
 
   // const navigate = useNavigate();
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [severity, setSeverity] = useState('');
+  const [alertTitle, setAlertTitle] = useState('');
   
   const deleteUser = (id) => {
     fetch(`/api/user/delete-user/${id}`, {
@@ -21,15 +27,21 @@ export default function UserList() {
       }
       return res.json()
     })
-      .then((data)=> {console.log('Utilisateur supprimé avec succès',data)
-      clearTimeout(
-        setTimeout(() => {
-          alert('Utilisateur supprimé avec succès')
-        }, 2000)
-      )
+      .then((data)=> {
+        setSeverity('success')
+        setShowAlert(true)
+        setAlertTitle('Succès')
+        setAlertMessage('Utilisateur supprimé avec succès')
+        console.log('Utilisateur supprimé avec succès',data)
+        setUsers(users.filter(user => user._id !== id))
       // navigate('/liste-utilisateurs')
     })
-      .catch((err)=> console.log('Erreur lors de la suppression de l\'utilisateur',err))
+      .catch((err)=> {
+        setSeverity('error')
+        setShowAlert(true)
+        setAlertTitle('Erreur')
+        setAlertMessage("Une erreur s'est produite lors de la suppression de l'utilisateur")
+        console.log('Erreur lors de la suppression de l\'utilisateur',err)})
   }
 
     const columns = [
@@ -39,7 +51,7 @@ export default function UserList() {
         { selector: row=>row.email, sortable: true, name: 'Email'},
         { selector: row=>row.service, sortable: true, name: 'Service'},
         { selector: row=>row.role, sortable: true, name: 'Rôle'},
-        { name: 'Actions',cell: () => {
+        { name: 'Actions',cell: (row) => {
           return (
             <>
               {/* <Link to={`/edit-user/:${users.id}`}>
@@ -47,12 +59,12 @@ export default function UserList() {
               </Link>
               <FaEye className='detailButton'/>
               <MdDelete className='deleteButton'/> */}
-              <button onClick={deleteUser} className='deleteButton'> <MdDelete size={'20px'}/> </button>
-              <button onClick={()=>{}} className='editButton'> <MdEdit size={'20px'}/> </button>
-              <button onClick={()=>{}} className='detailButton'> <FaEye size={'20px'}/> </button>
+              <button onClick={()=>deleteUser(row._id)} className='deleteButton'> <MdDelete size={'20px'}/> </button>
+              <button onClick={()=>{}} id={row._id} className='editButton'> <MdEdit size={'20px'}/> </button>
+              <button onClick={()=>{}} id={row._id} className='detailButton'> <FaEye size={'20px'}/> </button>
             </>
           )
-        } },
+        }, button: true, allowOverflow: true, ignoreRowClick: true },
       ];
 
 
@@ -70,6 +82,10 @@ export default function UserList() {
 
   return (
     <div>
+      {showAlert && <Alert severity={severity} onClose={() => setShowAlert(false)}>
+        <AlertTitle>{alertTitle}</AlertTitle>
+        {alertMessage}
+      </Alert>}
       <div className='heading'>
           <h2>Liste des utilisateurs</h2>
           <Button title={"Ajouter"} hasLink={true} link={'/new-user'}/>
