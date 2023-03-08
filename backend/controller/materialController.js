@@ -1,4 +1,6 @@
 const Material = require('../model/Materiel');
+const type = require('../model/Type');
+const marque = require('../model/Marque');
 
 exports.addMaterial = (req , res , next )=>{
     const material = new Material({
@@ -8,8 +10,7 @@ exports.addMaterial = (req , res , next )=>{
         etat: req.body.etat,
         proprietaire: req.body.proprietaire,
         available: req.body.available,
-        // borrowerName: req.body.borrowerName,
-        utilisateur: req.body.utilisateur,
+        // utilisateur: req.body.utilisateur,
         dateAcquisition: req.body.dateAcquisition,
         dateMiseEnService: req.body.dateMiseEnService,
         // dateFinService: req.body.dateFinService,
@@ -29,7 +30,25 @@ exports.getOneMaterial = (req , res , next )=>{
 
 exports.getAllMaterials = (req , res , next )=>{
     Material.find()
-    .then(materials => res.status(200).json(materials))
+    .populate('type')
+    .populate('marque')
+    .exec()
+    .then(materials => {
+        const response = materials.map(material => {
+            return {
+                _id : material._id,
+                numImmatriculation: material.numImmatriculation,
+                type: material.type.nomType,
+                marque: material.marque.nomMarque,
+                description: material.description,
+                etat: material.etat,
+                proprietaire: material.proprietaire,
+                available: material.available,
+                dateAcquisition: material.dateAcquisition,
+                dateMiseEnService: material.dateMiseEnService,
+            }
+        });
+        res.status(200).json(response)})
     .catch(error => res.status(400).json({ error }));
 }
 
