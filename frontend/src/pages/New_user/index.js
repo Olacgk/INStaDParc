@@ -139,7 +139,7 @@ export default function NewUser({isUpdate=false}) {
       </div>
       <div className='newUser_form_btn'>
         <Button title={'Enregister'} type='submit' value={'submit'}/>
-        <Button title={'Annuler'}/>
+        <Button title={'Annuler'} hasLink={true} link={'/liste-utilisateurs'}/>
       </div>
     </form>
   )

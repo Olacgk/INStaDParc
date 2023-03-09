@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import './styles.scss'
 import Table from '../../components/table'
 import { MdDelete, MdEdit } from 'react-icons/md'
-import { FaEye } from 'react-icons/fa'
 import Button from '../../components/button'
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';

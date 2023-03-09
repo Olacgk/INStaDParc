@@ -24,7 +24,7 @@ const App = () => {
     setUser(JSON.parse(localStorage.getItem('user')))
   }, [])
   const Logged = ({ logged }) => logged ? <Layout /> : <Navigate replace to="login" />
-console.log(user)
+// console.log(user)
   return (
     <Auth.Provider value={{ user, setUser }}>
       <BrowserRouter>

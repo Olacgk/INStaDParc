@@ -168,7 +168,7 @@ export default function NewMaterial() {
       </div>
       <div className='newMateriel_form_btn'>
         <Button title={'Enregister'} type='submit' value={'submit'}/>
-        <Button title={'Annuler'}/>
+        <Button title={'Annuler'} hasLink={true} link={'/materials'}/>
       </div>
     </form>
   )
