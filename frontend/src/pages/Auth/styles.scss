@@ -70,3 +70,24 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .authentification {
+      flex-direction: column;
+  
+      .authentification_rightpart,
+      .authentification_leftpart_form {
+        width: 100%;
+        padding: 1em;
+      }
+  
+      .authentification_rightpart {
+        height: 50vh;
+      }
+  
+      .authentification_leftpart_form {
+        height: 50vh;
+      }
+    }
+  }
+  

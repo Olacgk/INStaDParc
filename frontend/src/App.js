@@ -41,8 +41,6 @@ const App = () => {
             <Route path="/edit-user/:id" element={<NewUser isUpdate={true} />} />
             <Route path="/rapports" element={<Rapport />} />
             <Route path="/demande-materiel" element={<DemandeMat />} />
-            <Route path="/demande-materiel" element={<DemandeMat />} />
-            <Route path="/demande-materiel" element={<DemandeMat />} />
             <Route path="/profil" element={<Profile />} />
           </Route>
           <Route

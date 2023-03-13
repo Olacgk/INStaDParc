@@ -7,18 +7,27 @@ import { Demandes_List } from '../../data'
 export default function ListDemande() {
 
   const columns = [
-    { field: 'id', headerName: 'Id', headerAlign: 'center', width: 80 },
-    { field: 'date_demande', headerName: 'Date de la demande',  headerAlign: 'center', width: 150 },
-    { field: 'demandeur', headerName: 'Demandeur', headerAlign: 'center', width: 150 },
-    { field: 'description', headerName: 'Description',  headerAlign: 'center', width: 150 },
-    { field: 'cadre', headerName: 'Cadre de la demande',  headerAlign: 'center', width: 150 },
-    { field: 'etat', headerName: 'Etat de la demande', headerAlign: 'center', width: 150 },
+    // { selector: 'id', name: 'Id', headerAlign: 'center', width: 80 },
+    { selector: row => row.date_demande, name: 'Date de la demande'},
+    { selector: row => row.demandeur, name: 'Demandeur' },
+    { selector: row => row.typeDemande, name: 'Type de demande'},
+    { selector: row => row.etat, name: 'Etat de la demande' },
+    { selector: row => row.date_validation, name: 'Date de validation' },
+    {name: 'Actions',cell: (row) => {
+      return (
+        <>
+        <button className='deleteButton'> Valider </button>
+        <button className='editButton'> Rejeter </button>
+        <button>Détail</button>
+        </>
+      )
+    }}
   ];
   return (
     <div>
       <div className='heading'>
         <h2>Liste des demandes</h2>
-        <Button title={"Ajouter"}/>
+        <Button title={"Ajouter"} hasLink={true} link={'/demande-materiel'}/>
       </div>
       <div className='listDemande'>
         <div className='demande_mat'>
