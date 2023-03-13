@@ -3,7 +3,6 @@ const app = express();
 const mongoose = require('mongoose');
 require('dotenv/config');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 
 app.use(express.json());
 app.use((req, res, next) => {
@@ -19,12 +18,6 @@ app.use(bodyParser.json());
 mongoose.connect(process.env.DB_CONNECTION, ()=>{
   console.log("Connected to DB")
   });
-
-app.use(cors(
-  {
-    origin: "http://localhost:3000",
-  }
-));
 
 const authRoute = require('./routes/auth');
 app.use('/api/auth', authRoute);
