@@ -47,4 +47,4 @@ app.use('/api/service', serviceRoute);
 const directionRoute = require('./routes/direction');
 app.use('/api/direction', directionRoute);
 
-app.listen(8080, ()=> console.log("Listening to port 8080"))
+app.listen(process.env.PORT, ()=> console.log(`Listening to port ${process.env.PORT}`))

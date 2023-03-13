@@ -1,0 +1,14 @@
+const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
+
+const demandeSchema = mongoose.Schema({
+    typeMat: {type: mongoose.Schema.Types.ObjectId, ref:'Type', required: true, min: 6, max: 255},
+    Demandeur: {type: mongoose.Schema.Types.ObjectId, ref:'Users', required: true, min: 6, max: 255},
+    dateDemande: {type: Date, required: true},
+    dateRetour: {type: Date, required: true},
+    quantité: {type: Number, required: true},
+});
+
+demandeSchema.plugin(uniqueValidator);
+
+module.exports = mongoose.model('Demande', demandeSchema);
